@@ -45,8 +45,12 @@ type Watch interface {
 type Watchable interface {
 	xclose.SimpleCloser
 
+	// IsClosed returns true if the Watchable is closed
+	IsClosed() bool
 	// Get returns the latest value
 	Get() interface{}
+	// NumWatches returns the number of watches on the Watchable
+	NumWatches() int
 	// Watch returns the value and a Watch that will be notified on updates
 	Watch() (interface{}, Watch, error)
 	// Update sets the value and notify Watches
@@ -116,6 +120,22 @@ func (w *watchable) Update(v interface{}) error {
 	}
 
 	return nil
+}
+
+func (w *watchable) NumWatches() int {
+	w.RLock()
+	l := len(w.active)
+	w.RUnlock()
+
+	return l
+}
+
+func (w *watchable) IsClosed() bool {
+	w.RLock()
+	c := w.closed
+	w.RUnlock()
+
+	return c
 }
 
 func (w *watchable) Close() {
