@@ -27,6 +27,8 @@ import (
 	"github.com/m3db/m3x/log"
 
 	"github.com/uber-go/tally"
+
+	"go.uber.org/zap"
 )
 
 // Reporter reports information during runtime
@@ -50,6 +52,12 @@ type Options interface {
 
 	// Logger returns the logger
 	Logger() xlog.Logger
+
+	// SetZapLogger sets the zap logger
+	SetZapLogger(value *zap.Logger) Options
+
+	// ZapLogger returns the zap logger
+	ZapLogger() *zap.Logger
 
 	// SetMetricsScope sets the metricsScope
 	SetMetricsScope(value tally.Scope) Options

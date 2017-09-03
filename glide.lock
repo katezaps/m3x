@@ -1,5 +1,5 @@
-hash: 50a0b59635ffd9cd3f6bd65a7f6a415f0f3a9a82d4f40b997585e04a4bcf2e86
-updated: 2017-08-20T15:45:39.86828054-04:00
+hash: 4714ac84fc1a1f7b1cab3d7426325f08dfcef4257df3f7089ef8b19cd8e38d24
+updated: 2017-09-03T12:13:06.911335412-04:00
 imports:
 - name: github.com/apache/thrift
   version: 9549b25c77587b29be4e0b5c258221a4ed85d37a
@@ -42,6 +42,20 @@ imports:
   - m3/customtransports
   - m3/thrift
   - m3/thriftudp
+- name: github.com/uber-go/zap
+  version: 3216c4c73e8ebbafff73c456dd27143f4a7c1f94
+- name: go.uber.org/atomic
+  version: 4e336646b2ef9fc6e47be8e21594178f98e5ebcf
+- name: go.uber.org/multierr
+  version: 3c4937480c32f4c13a875a1829af76c98ca3d40a
+- name: go.uber.org/zap
+  version: 9d9d6135afe89b6fc4a05e9a8552526caba38048
+  subpackages:
+  - buffer
+  - internal/bufferpool
+  - internal/color
+  - internal/exit
+  - zapcore
 - name: gopkg.in/validator.v2
   version: 3e4f037f12a1221a0864cf0dd2e81c452ab22448
 - name: gopkg.in/yaml.v2
